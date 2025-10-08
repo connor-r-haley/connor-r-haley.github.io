@@ -10,18 +10,26 @@
       text-align: center;
       background-color: #f9f9f9;
       margin: 0;
-      padding: 40px;
+      padding: 20px;
     }
     h1 {
-      font-size: 2em;
+      font-size: 1.8em;
       margin-bottom: 10px;
       color: #222;
     }
     p {
       margin-top: 10px;
     }
-    embed {
-      margin-top: 30px;
+    .pdf-container {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .pdf-viewer {
+      width: 80%;
+      height: 850px;
       border: 1px solid #ccc;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
@@ -38,12 +46,32 @@
       font-size: 0.9em;
       color: #555;
     }
+
+    /* 📱 Mobile optimization */
+    @media (max-width: 768px) {
+      .pdf-viewer {
+        width: 100%;
+        height: 80vh; /* Adjust height to viewport */
+      }
+      body {
+        padding: 10px;
+      }
+      h1 {
+        font-size: 1.4em;
+      }
+    }
   </style>
 </head>
 <body>
   <h1>Connor Haley - Resume</h1>
-  <embed src="connor-haley-resume.pdf" type="application/pdf" width="80%" height="850px" />
-  <p><a href="connor-haley-resume.pdf" download>Download PDF</a></p>
+
+  <div class="pdf-container">
+    <embed class="pdf-viewer" src="connor-haley-resume.pdf" type="application/pdf" />
+    <p><a href="connor-haley-resume.pdf" download>Download PDF</a></p>
+    <p style="font-size:0.9em; color:#666;">
+      If the preview doesn't load on mobile, <a href="connor-haley-resume.pdf" target="_blank">open the PDF directly</a>.
+    </p>
+  </div>
 
   <footer>
     <p>
